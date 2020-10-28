@@ -20,6 +20,7 @@ Assignment 3 <br/>
   - https://stackoverflow.com/questions/18186878/invalid-use-of-template-name-without-an-argument-list
 - For helping with writing .h file implementation with template class
   - https://www.bogotobogo.com/cplusplus/template_declaration_definition_header_implementation_file.php
+- Rene's Stack implementation for GenStack.h
 
 5. Instructions for running assignment:
 - g++ *.cpp
