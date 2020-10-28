@@ -5,5 +5,4 @@ public:
   delim();
   ~delim();
   int parseFile(string filename);
-
 };

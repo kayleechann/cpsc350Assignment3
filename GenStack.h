@@ -1,3 +1,12 @@
+/*
+Kaylee Chan
+2348244
+kaychan@chapman.edu
+CPSC 350-03
+Assignment 3
+
+This assignment uses an array-based stack to check delimiters of a file.
+*/
 #include <iostream>
 using namespace std;
 
@@ -24,14 +33,6 @@ private:
 
 };
 
-//GenStack.cpp
-// template <typename T>
-// GenStack<T>::GenStack(){
-//   myArray = new T[128];
-//   mSize = 128;
-//   top = -1;
-// }
-
 //overloaded constructor
 template <typename T>
 GenStack<T>::GenStack(int maxSize){
@@ -40,11 +41,17 @@ GenStack<T>::GenStack(int maxSize){
   top = -1;
 }
 
+//destructor
 template <typename T>
 GenStack<T>::~GenStack(){
   delete myArray;
 }
 
+/*
+resize method - automatically allocates more memory is stack is full
+void - does not have return type
+parameter - none
+*/
 template <typename T>
 void GenStack<T>::resize(){
   T *tempArray = new T[mSize*2];
@@ -55,6 +62,7 @@ void GenStack<T>::resize(){
   mSize = mSize*2;
 }
 
+//push(T data)  - inserts element to the top of the stack
 template <typename T>
 void GenStack<T>::push(T data){
   if(isFull()){
@@ -63,6 +71,7 @@ void GenStack<T>::push(T data){
   myArray[++top] = data; //preincrement --> increment before we add
 }
 
+//pop() - returns anmd removes the top element
 template <typename T>
 T GenStack<T>::pop(){
   if(isEmpty()){
@@ -73,6 +82,7 @@ T GenStack<T>::pop(){
   //track of the current element
 }
 
+//peeK() - returns but does not remove the top element in the stack
 template <typename T>
 T GenStack<T>::peek(){
   if(isEmpty()){
@@ -82,17 +92,20 @@ T GenStack<T>::peek(){
   return myArray[top];
 }
 
+//isEmpty() - returns true/false if stack is empty
 template <typename T>
 bool GenStack<T>::isEmpty(){
   //1 = true, 0 = false
   return (top == -1);
 }
 
+//isFull() - returns true/false is stack is full
 template <typename T>
 bool GenStack<T>::isFull(){
   return (top  == mSize -1 );
 }
 
+//getSize() - returns integer of size of stack
 template <typename T>
 int GenStack<T>::getSize(){
   return top + 1;
